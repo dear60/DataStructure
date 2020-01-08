@@ -1,4 +1,4 @@
-package com.mingful.www.datastructure.tree;
+package com.mingful.www.datastructure.tree.binarytree;
 
 /**
  * @author fmf
@@ -224,7 +224,7 @@ class Node {
      */
     private int leftType;
     /**
-     * 如果为0,right表示为又子树，为1,left表示为后继结点
+     * 如果为0,right表示为右子树，为1,left表示为后继结点
      */
     private int rightType;
 
