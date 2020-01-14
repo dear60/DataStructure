@@ -15,6 +15,8 @@ public class BinarySearchTester {
             array[i] = i;
         }
         System.out.println(BinarySearch.search(array, 5));
+        System.out.println("--------------------------------");
+        System.out.println(BinarySearch.search1(array, 5));
     }
 }
 
@@ -37,6 +39,30 @@ class BinarySearch {
         } else {
             return mid;
         }
+    }
+
+    /**
+     * 采用非递归方式经行二分查找
+     *
+     * @param array 待查找的数组
+     * @param value 查找的值
+     * @return 该值的下标，若不存在，则返回 -1
+     */
+    public static int search1(int[] array, int value) {
+        int left = 0;
+        int right = array.length;
+        int mid;
+        while (left <= right) {
+            mid = (left + right) / 2;
+            if (array[mid] == value) {
+                return mid;
+            } else if (array[mid] > value) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return -1;
     }
 
 }
