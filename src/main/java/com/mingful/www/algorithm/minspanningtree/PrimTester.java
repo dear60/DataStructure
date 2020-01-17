@@ -8,7 +8,7 @@ import java.util.HashSet;
  * @author fmf
  * @version 1.0
  * @className PrimTester
- * @description 最小生成树 - 普里姆(Prim)算法
+ * @description 最小生成树 - 普里姆(Prim)算法 - 贪心法
  * @create 2020-01-15 14:51
  **/
 public class PrimTester {

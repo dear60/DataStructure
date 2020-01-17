@@ -8,7 +8,7 @@ import java.util.*;
  * @author fmf
  * @version 1.0
  * @className KruskalTester
- * @description 最小生成树 - 克鲁斯卡尔(Kruskal)算法
+ * @description 最小生成树 - 克鲁斯卡尔(Kruskal)算法 - 贪心法
  * @create 2020-01-15 16:42
  **/
 public class KruskalTester {

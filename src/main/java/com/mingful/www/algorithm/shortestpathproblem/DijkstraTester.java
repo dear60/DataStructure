@@ -9,6 +9,7 @@ import java.util.Arrays;
  * @version 1.0
  * @className DijkstraTester
  * @description 最短路径问题 - 迪杰斯特拉(dijkstra)算法
+ * 强调的是从一个点出发到其他各个顶点的最短路径(贪心法)
  * @create 2020-01-16 14:09
  **/
 public class DijkstraTester {
