@@ -25,19 +25,22 @@ class StringMatchProblem {
 
 
     /**
-     * 字符串匹配朴素算法(暴力算法)
+     * 字符串匹配朴素算法(暴力算法),核心思想是遍历目标串(被匹配字符串)和模式串(待匹配字符串)
+     * 若相等，目标串和模式串指针加一
+     * 若不相等，目标串指针回退，模式串指针重置为0
      *
-     * @param s         被匹配字符
-     * @param subString 待匹配字符
-     * @return 被匹配字符的下标，若无匹配项，则返回 -1
+     * @param s         被匹配字符串
+     * @param subString 待匹配字符串
+     * @return 被匹配字符串的下标，若无匹配项，则返回 -1
      */
     public static int violent(String s, String subString) {
-        // 被匹配字符的下标
+        // 被匹配字符串的下标
         int i;
-        // 待匹配字符的下标
+        // 待匹配字符串的下标
         int j = 0;
-        // 被匹配字符的滑动下标
+        // 被匹配字符串的滑动下标
         int temp;
+        // 遍历被匹配字符串
         for (i = 0; i < s.length(); i++) {
             // 令滑动下标等于初始下标
             temp = i;
@@ -52,7 +55,7 @@ class StringMatchProblem {
                     break;
                 }
             }
-            // 当完全匹配时，返回被匹配字符下标
+            // 当完全匹配时，返回被匹配字符串下标
             if (j == subString.length()) {
                 return i;
             }
@@ -61,7 +64,7 @@ class StringMatchProblem {
     }
 
     /**
-     * 字符串匹配kmp算法
+     * 字符串匹配kmp算法，核心思想是构建部分匹配字符表，当不匹配时，减少滑动次数，进而提高效率
      *
      * @param s         被匹配字符
      * @param subString 待匹配字符
@@ -69,7 +72,7 @@ class StringMatchProblem {
      */
     public static int kmp(String s, String subString) {
         int[] next = getNext(subString);
-        // 被匹配字符串依次进行，减少的是两个字符串的滑动次数，进一步减少重复操作
+        // 被匹配字符串依次进行，减少的是两个字符串的滑动次数，进一步减少重复操作(主要体现在减少while循环)
         for (int i = 0, j = 0; i < s.length(); i++) {
             // 字符不相等时，待匹配字符的指针滑动回上一个相等的下标处
             while (j > 0 && s.charAt(i) != subString.charAt(j)) {

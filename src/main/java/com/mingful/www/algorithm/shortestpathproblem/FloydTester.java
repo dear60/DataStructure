@@ -2,8 +2,6 @@ package com.mingful.www.algorithm.shortestpathproblem;
 
 import com.mingful.www.datastructure.graph.adjacencymatrixgraph.AdjacencyMatrixGraph;
 
-import java.util.Arrays;
-
 /**
  * @author fmf
  * @version 1.0
@@ -15,7 +13,9 @@ import java.util.Arrays;
 public class FloydTester {
     public static void main(String[] args) {
         int n = 7;
+        // 顶点集合
         String[] vertexes = {"A", "B", "C", "D", "E", "F", "G"};
+        // 构建图
         AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n);
         for (String vertex : vertexes) {
             graph.insertVertex(vertex);
@@ -50,12 +50,15 @@ public class FloydTester {
 }
 
 class Floyd {
+    /**
+     * 佛洛依德算法，核心思想是选取三个点，一个是起点，一个是中间点，一个是终点，
+     * 如果起点通过中间点到达终点得距离小于起点直接到中间点的距离，那么替换起点到终点里最小权值(动态规划法)
+     *
+     * @param edges    图的邻接矩阵
+     * @param vertexes 顶点对应的字符数组
+     */
     public static void method(int[][] edges, String[] vertexes) {
         int length = vertexes.length;
-        int[][] pre = new int[length][length];
-        for (int i = 0; i < length; i++) {
-            Arrays.fill(pre[i], i);
-        }
         int len;
         // 对中间顶点的遍历，k就是中间顶点的下标
         for (int k = 0; k < length; k++) {

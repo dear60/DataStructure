@@ -15,7 +15,9 @@ public class PrimTester {
 
     public static void main(String[] args) {
         int n = 7;
+        // 顶点集合
         String[] vertexes = {"A", "B", "C", "D", "E", "F", "G"};
+        // 构建图
         AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n);
         for (String vertex : vertexes) {
             graph.insertVertex(vertex);
@@ -49,7 +51,7 @@ class Prim {
 
 
     /**
-     * 图的最小路径(最小生成树)
+     * 普里姆算法，核心思想是从已访问的点集合出发，找出到各个未被访问点的最小权值，把该点作为已被访问，进行循环
      *
      * @param edges    各个顶点的邻接矩阵
      * @param vertexes 顶点数组
@@ -62,10 +64,10 @@ class Prim {
         boolean[] isVisited = new boolean[vertexes.length];
         // 将第一个顶点置为访问状态
         isVisited[vertex] = true;
-        // 记录最小权值的下标1
-        int index1 = -1;
-        // 记录最小权值的下标2
-        int index2 = -1;
+        // 记录最小权值的起点下标
+        int start = -1;
+        // 记录最小权值的终点下标
+        int end = -1;
         int min = Integer.MAX_VALUE;
         // vertexes个顶点，共需vertexes - 1条边，故进行vertexes - 1循环
         for (int k = 1; k < vertexes.length; k++) {
@@ -79,14 +81,14 @@ class Prim {
                     count++;
                     if (isVisited[i] && !isVisited[j] && edges[i][j] != 0 && edges[i][j] < min) {
                         min = edges[i][j];
-                        index1 = i;
-                        index2 = j;
+                        start = i;
+                        end = j;
 
                     }
                 }
             }
-            System.out.println("边<" + vertexes[index1] + "," + vertexes[index2] + "> 权值:" + min);
-            isVisited[index2] = true;
+            System.out.println("边<" + vertexes[start] + "," + vertexes[end] + "> 权值:" + min);
+            isVisited[end] = true;
             min = Integer.MAX_VALUE;
         }
         System.out.println("比较次数:" + count);
@@ -107,9 +109,9 @@ class Prim {
         // 将第一个顶点放入集合中
         set.add(vertex);
         // 记录最小权值的下标1
-        int index1 = -1;
+        int start = -1;
         // 记录最小权值的下标2
-        int index2 = -1;
+        int end = -1;
         int min = Integer.MAX_VALUE;
         // 和method比较，只是不遍历整个二维数组，而是将以访问过的顶点进行遍历，减少判断次数
         while (set.size() != vertexes.length) {
@@ -118,13 +120,13 @@ class Prim {
                     count++;
                     if (set.contains(i) && !set.contains(j) && edges[i][j] != 0 && edges[i][j] < min) {
                         min = edges[i][j];
-                        index1 = i;
-                        index2 = j;
+                        start = i;
+                        end = j;
                     }
                 }
             }
-            System.out.println("边<" + vertexes[index1] + "," + vertexes[index2] + "> 权值:" + min);
-            set.add(index2);
+            System.out.println("边<" + vertexes[start] + "," + vertexes[end] + "> 权值:" + min);
+            set.add(end);
             min = Integer.MAX_VALUE;
         }
         System.out.println("比较次数:" + count);

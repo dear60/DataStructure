@@ -13,7 +13,9 @@ public class AdjacencyMatrixGraphTester {
 //        int n = 5;
 //        String[] vertexes = {"A", "B", "C", "D", "E"};
         int n = 8;
+        // 顶点集合
         String[] vertexes = {"1", "2", "3", "4", "5", "6", "7", "8"};
+        // 构建图
         AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n);
         for (String vertex : vertexes) {
             graph.insertVertex(vertex);

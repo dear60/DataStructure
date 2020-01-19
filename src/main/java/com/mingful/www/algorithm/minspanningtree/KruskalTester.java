@@ -14,7 +14,9 @@ import java.util.*;
 public class KruskalTester {
     public static void main(String[] args) {
         int n = 7;
+        // 顶点集合
         String[] vertexes = {"A", "B", "C", "D", "E", "F", "G"};
+        // 构建图
         AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n);
         for (String vertex : vertexes) {
             graph.insertVertex(vertex);
@@ -39,7 +41,7 @@ public class KruskalTester {
 
 class Kruskal {
     /**
-     * 克鲁斯卡尔算法
+     * 克鲁斯卡尔算法，核心思想是每次选取最短的那条边进行构建，如果该条边与之前选取的边构成回路，则取下一条
      *
      * @param edges    图的邻接矩阵
      * @param vertexes 顶点对应的字符数组
@@ -118,8 +120,17 @@ class Kruskal {
  */
 class EdgeData implements Comparable<EdgeData> {
 
+    /**
+     * 起点
+     */
     private String begin;
+    /**
+     * 终点
+     */
     private String end;
+    /**
+     * 权值
+     */
     private Integer value;
 
     public EdgeData(String begin, String end, Integer value) {

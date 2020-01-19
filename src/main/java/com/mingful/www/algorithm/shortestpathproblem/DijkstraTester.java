@@ -15,7 +15,9 @@ import java.util.Arrays;
 public class DijkstraTester {
     public static void main(String[] args) {
         int n = 7;
+        // 顶点集合
         String[] vertexes = {"A", "B", "C", "D", "E", "F", "G"};
+        // 构建图
         AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(n);
         for (String vertex : vertexes) {
             graph.insertVertex(vertex);
@@ -44,7 +46,7 @@ class Dijkstra {
 
     /**
      * 迪杰斯特拉算法，核心思想就是每一轮选取一个最小值作为访问顶点，从该点出发到达另一个顶点总是最小的，
-     * 类似三角形，两边之和总是大于第三条边，也就是从访问顶点到下一条边的权值
+     * 类似三角形，两边之和总是大于第三条边，也就是从访问顶点到下一条边的权值(广度优先遍历)
      *
      * @param edges    图的邻接矩阵
      * @param vertexes 顶点对应的字符数组

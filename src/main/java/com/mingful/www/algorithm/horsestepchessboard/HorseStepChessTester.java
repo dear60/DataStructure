@@ -79,7 +79,7 @@ class HorseStepChess {
         ArrayList<Point> points = getNextPoints(new Point(row, column));
         // 此处使用了贪心法策略，求出当前点的下一个能走的点的集合的下一个能走的点的个数
         // 按照从小到大的顺序排列，以减少递归次数
-        Collections.sort(points);
+        Collections.sort(points); // 可以试着注释掉这行经行对比
         Point point;
         while (!points.isEmpty()) {
             // 每次取出第一个元素，依次作为递归点

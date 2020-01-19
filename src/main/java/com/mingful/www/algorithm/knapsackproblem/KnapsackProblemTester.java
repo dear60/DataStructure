@@ -23,7 +23,7 @@ public class KnapsackProblemTester {
 class KnapsackProblem {
 
     /**
-     * 动态规划法求背包问题最优解
+     * 动态规划法求背包问题最优解，核心思想是逐步增加背包容量，求出每级容量的最大价值
      *
      * @param weight   物品的重量
      * @param value    物品的价值
@@ -45,6 +45,7 @@ class KnapsackProblem {
                 }
             }
         }
+        // 显示二维数组
         for (int[] temp : maxValueArray) {
             System.out.println(Arrays.toString(temp));
         }
